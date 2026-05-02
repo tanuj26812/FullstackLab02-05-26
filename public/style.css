@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+}
+
+a {
+  color: #1d4ed8;
+}
+
+.shell {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.panel,
+.history {
+  background: #ffffff;
+  border: 1px solid #d8deea;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.08);
+}
+
+.history {
+  margin-top: 24px;
+}
+
+.heading {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #b45309;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.shorten-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  height: 46px;
+  border: 1px solid #b8c2d6;
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 16px;
+}
+
+button {
+  height: 46px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 20px;
+  color: #ffffff;
+  background: #0f766e;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #115e59;
+}
+
+.message {
+  margin: 16px 0 0;
+  font-weight: 700;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 16px;
+  border-left: 4px solid #0f766e;
+  background: #ecfdf5;
+}
+
+.result span {
+  display: block;
+  margin-bottom: 6px;
+  color: #3f4b61;
+  font-size: 14px;
+}
+
+.table-wrap {
+  width: 100%;
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: #3f4b61;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.truncate {
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  margin: 16px 0 0;
+  color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 20px, 980px);
+    padding: 24px 0;
+  }
+
+  .panel,
+  .history {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <div class="heading">
+          <p class="eyebrow">MongoDB + Express</p>
+          <h1>URL Shortener</h1>
+        </div>
+
+        <form action="/shorten" method="POST" class="shorten-form">
+          <label for="originalUrl">Enter long URL</label>
+          <div class="input-row">
+            <input
+              id="originalUrl"
+              name="originalUrl"
+              type="url"
+              placeholder="https://example.com/very/long/link"
+              required
+            />
+            <button type="submit">Shorten</button>
+          </div>
+        </form>
+
+        <% if (error) { %>
+        <p class="message error"><%= error %></p>
+        <% } %>
+
+        <% if (shortUrl) { %>
+        <div class="result">
+          <span>Your short URL</span>
+          <a href="<%= shortUrl %>" target="_blank" rel="noreferrer"><%= shortUrl %></a>
+        </div>
+        <% } %>
+      </section>
+
+      <section class="history">
+        <h2>Recent URLs</h2>
+
+        <% if (urls.length === 0) { %>
+        <p class="empty">No URLs shortened yet.</p>
+        <% } else { %>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Short URL</th>
+                <th>Original URL</th>
+                <th>Clicks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% urls.forEach((url) => { %>
+              <tr>
+                <td>
+                  <a href="/<%= url.shortCode %>" target="_blank" rel="noreferrer">
+                    <%= baseUrl %>/<%= url.shortCode %>
+                  </a>
+                </td>
+                <td class="truncate"><%= url.originalUrl %></td>
+                <td><%= url.clicks %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <% } %>
+      </section>
+    </main>
+  </body>
+</html>
